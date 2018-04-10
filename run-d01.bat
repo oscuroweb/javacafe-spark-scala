@@ -1,0 +1,1 @@
+spark-submit --class "oscuroweb.javacafe.sparkdemo.D01_WordCount" --master local[1] target\scala-2.11\javacafe-spark-scala_2.11-0.1.jar
