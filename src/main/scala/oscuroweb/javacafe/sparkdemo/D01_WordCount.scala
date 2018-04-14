@@ -11,7 +11,7 @@ object D01_WordCount {
     val lines = spark.textFile("spark-warehouse/01_word_count_in.txt")
 
     val wordCountPair = lines
-      .flatMap(line => line.split(" ").iterator)
+      .flatMap(line => line.split(" "))
       .map(word => (word, 1))
       .reduceByKey((value1, value2) => value1 + value2)
       .map(tuple => (tuple.swap))
@@ -19,7 +19,7 @@ object D01_WordCount {
 
     wordCountPair.foreach(tuple => println(tuple.toString()))
 
-    // wordCountPair.saveAsTextFile(path = "spark-warehouse/02_word_count_out_scala")
+    wordCountPair.saveAsTextFile(path = "spark-warehouse/01_word_count_out_scala")
 
     spark.stop()
   }

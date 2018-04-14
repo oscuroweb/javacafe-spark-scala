@@ -1,0 +1,1 @@
+spark-submit --class "oscuroweb.javacafe.sparkdemo.D04_SparkSQL" target/scala-2.11/javacafe-spark-scala_2.11-0.1.jar spark-warehouse/04_adult_data.csv
